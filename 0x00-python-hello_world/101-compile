@@ -1,24 +1,2 @@
-import os
-import py_compile
-import sys
-
-def main():
-    # Get the filename from the environment variable
-    pyfile = os.getenv('PYFILE')
-    
-    if not pyfile:
-        sys.stderr.write("Error: The environment variable PYFILE is not set.\n")
-        sys.exit(1)
-    
-    # Print the compilation message
-    print(f"Compiling {pyfile} ...")
-    
-    # Compile the Python file
-    try:
-        py_compile.compile(pyfile, cfile=f"{pyfile}c", doraise=True)
-    except py_compile.PyCompileError as e:
-        sys.stderr.write(f"Compilation failed: {e}\n")
-        sys.exit(1)
-
-if __name__ == "__main__":
-    main()
+#!/bin/bash
+python3 -c "imports py_compile; py_compile.compile('$PYFILE' + 'c')"
