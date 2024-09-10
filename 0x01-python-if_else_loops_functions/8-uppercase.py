@@ -15,5 +15,5 @@ def uppercase(s):
         if 'a' <= char <= 'z':
             char = chr(ord(char) - 32)
         result += char
-    print("{}\n".format(result))
+    print("{}".format(result))
          
