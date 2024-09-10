@@ -10,9 +10,7 @@ def uppercase(s):
         uppercase and print.
     """
     for char in s:
-        # Check if the character is lowercase
         if 'a' <= char <= 'z':
-            char = chr(ord(char) - 32)  # Convert to uppercase
-        print("{}".format(char), end='')  # Print without a newline after each character
+            char = chr(ord(char) - 32)
+        print("{}".format(char), end='')
 
-    print()  # Print newline after the whole string
