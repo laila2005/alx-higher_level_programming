@@ -11,8 +11,4 @@ def islower(c):
     Returns:
     bool: True if c is a lowercase letter, False otherwise.
     """
-     if not isinstance(c, str):
-        raise TypeError("Input must be a string.")
-    if len(c) != 1:
-        raise ValueError("Input must be a single character string.")
     return 'a' <= c <= 'z'
