@@ -16,4 +16,3 @@ def uppercase(s):
             char = chr(ord(char) - 32)
         result += char
     print("{}".format(result))
-         
