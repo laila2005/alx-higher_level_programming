@@ -13,5 +13,4 @@ def uppercase(s):
         if 'a' <= char <= 'z':
             # Convert lowercase character to uppercase
             char = chr(ord(char) - 32)
-        print"({}".format(char), end='')
-    print()
+        print"({}\n".format(char), end='')
