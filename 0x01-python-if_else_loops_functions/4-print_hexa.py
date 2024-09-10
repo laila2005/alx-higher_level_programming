@@ -2,4 +2,4 @@
 
 for i in range(0,99):
     hexadecimal = hex(i)
-    print("{} = {}".format(i,hexadecimal))
+    print("{} = {}".format(i , hexadecimal))
