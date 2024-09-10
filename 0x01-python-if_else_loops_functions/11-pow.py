@@ -5,13 +5,13 @@ def pow(a, b):
     Computes a to the power of b and returns the result.
 
     Args:
-        a (int): The base number.
+        a (int or float): The base number.
         b (int): The exponent.
 
     Returns:
-        int: The result of a raised to the power of b.
+        float: The result of a raised to the power of b.
     """
-     if b < 0:
+    if b < 0:
         a = 1 / a
         b = -b
     result = 1
