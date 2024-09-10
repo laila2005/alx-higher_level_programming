@@ -11,10 +11,17 @@ def pow(a, b):
     Returns:
         float: The result of a raised to the power of b.
     """
+ result = 1
+    is_negative_exp = False
+
     if b < 0:
-        a = 1 / a
+        is_negative_exp = True
         b = -b
-    result = 1
+
     for _ in range(b):
         result *= a
+
+    if is_negative_exp:
+        result = 1 / result
+
     return result
