@@ -9,6 +9,8 @@ def uppercase(s):
         s (str): The string to convert to
         uppercase and print.
     """
+    result = ""
+
     for char in s:
         if 'a' <= char <= 'z':
             char = chr(ord(char) - 32)
