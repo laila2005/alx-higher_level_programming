@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 
-import sys
-
-num_args = len(sys.argv) - 1
+def main():
+    num_args = len(sys.argv) - 1
 
 if num_args == 1:
     print("{} argument:".format(num_args))
