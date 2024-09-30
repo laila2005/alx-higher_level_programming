@@ -11,6 +11,6 @@ def safe_print_list_integers(my_list=[], x=0):
             continue
         except IndexError:
             # If x is larger than the list, break when out of range
-            break
+            raise
     print()  # Print a newline at the end
     return count  # Return the number of integers successfully printed
