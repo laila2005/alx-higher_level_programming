@@ -9,11 +9,14 @@ class Square:
         """Initialize a new Square instance.
 
         Args:
-            size (int, optional): The size of the square. Defaults to 0.
-            position (tuple, optional): The position of the square. Defaults to (0, 0).
+            size (int, optional): The size of
+            square. Defaults to 0.
+            position (tuple, optional): The position of
+            the square. Defaults to (0, 0).
 
         Raises:
-            TypeError: If size is not an integer or if position is not a tuple of 2 positive integers.
+            TypeError: If size is not an integer
+            or if position is not a tuple of 2 positive integers.
             ValueError: If size is less than 0.
         """
         self.size = size  # Use the property setter to set size
@@ -62,9 +65,11 @@ class Square:
             value (tuple): The new position of the square.
 
         Raises:
-            TypeError: If position is not a tuple of 2 positive integers.
+            TypeError: If position is not
+            tuple of 2 positive integers.
         """
-        if not isinstance(value, tuple) or len(value) != 2 or not all(isinstance(i, int) and i >= 0 for i in value):
+        if not isinstance(value, tuple) or len(value) != 2
+        or not all(isinstance(i, int) and i >= 0 for i in value):
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 
@@ -79,13 +84,13 @@ class Square:
     def my_print(self):
         """Print the square using the '#' character.
 
-        If size is 0, print an empty line. The position is handled by leading spaces.
+        If size is 0, print an empty line.
+        The position is handled by leading spaces.
         """
         if self.__size == 0:
             print("")
         else:
-            for _ in range(self.__position[1]):  # Print empty lines for vertical position
+            for _ in range(self.__position[1]):
                 print("")
             for _ in range(self.__size):
-                print(" " * self.__position[0] + "#" * self.__size)  # Print square with leading spaces
-
+                print(" " * self.__position[0] + "#" * self.__size)
