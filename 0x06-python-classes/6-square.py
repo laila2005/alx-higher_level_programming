@@ -19,8 +19,8 @@ class Square:
             or if position is not a tuple of 2 positive integers.
             ValueError: If size is less than 0.
         """
-        self.size = size  # Use the property setter to set size
-        self.position = position  # Use the property setter to set position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
