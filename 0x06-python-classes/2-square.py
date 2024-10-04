@@ -5,11 +5,15 @@ private inctance size
 
 
 class Square:
-    """This class defines a square.
+    """Initialize a new Square instance.
 
-    This class has no public attributes.
+        Args:
+            size (int, optional): The size of the square. Defaults to 0.
 
-    """
+        Raises:
+            TypeError: If size is not an integer.
+            ValueError: If size is less than 0.
+        """
     def __init__(self, size=0):
         if type(size) != int:
             raise TypeError("size must be an integer")
