@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-import unittest
 
 def add_integer(a, b=98):
     """ adding two integrs a , b.
@@ -11,19 +10,6 @@ def add_integer(a, b=98):
         the sum of two numbers
     raises:
         TypeError: If a or b is not an integer or a float.
-
-    Examples:
-        >>> add_integer(1, 2)
-        3
-        >>> add_integer(100, -2)
-        98
-        >>> add_integer(2.5, 3)
-        5
-        >>> add_integer(10)
-        108
-        >>> add_integer("a", 2)
-        Traceback (most recent call last):
-        TypeError: a must be an integer
     """
     if not isinstance(a, (int, float)):
         raise TypeError("a must be an integer")
@@ -37,4 +23,4 @@ def add_integer(a, b=98):
 
 if __name__ == "__main__":
     import doctest
-    doctest.testmod()
+    doctest.testfile("tests/0-add_integer.txt", globals=globals())
