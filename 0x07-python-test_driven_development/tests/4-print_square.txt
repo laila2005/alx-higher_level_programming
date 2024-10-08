@@ -1,0 +1,46 @@
+>>> print_square = __import__('4-print_square').print_square
+
+# Test valid input: size 3 should print a 3x3 square of '#'
+>>> print_square(3)
+###
+###
+###
+
+# Test valid input: size 1 should print a single '#'
+>>> print_square(1)
+#
+
+# Test valid input: size 0 should print nothing (no output)
+>>> print_square(0)
+
+# Test invalid input: float size less than 0 should raise a TypeError
+>>> print_square(-2.5)
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
+
+# Test invalid input: size as a string should raise a TypeError
+>>> print_square("3")
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
+
+# Test invalid input: negative size should raise a ValueError
+>>> print_square(-3)
+Traceback (most recent call last):
+    ...
+ValueError: size must be >= 0
+
+# Test valid input: large square size 5 should print a 5x5 square
+>>> print_square(5)
+#####
+#####
+#####
+#####
+#####
+
+# Test invalid input: float size greater than 0 should raise a TypeError
+>>> print_square(2.5)
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
