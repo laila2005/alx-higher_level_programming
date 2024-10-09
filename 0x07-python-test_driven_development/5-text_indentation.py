@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+"""
+this module Prints a text with 2 new lines after each char
+"""
 def text_indentation(text):
     """
     Prints a text with 2 new lines after each of these characters: ., ?, and :
