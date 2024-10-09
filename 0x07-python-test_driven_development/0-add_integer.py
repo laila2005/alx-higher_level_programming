@@ -7,7 +7,7 @@ It provides a function to add two integers.
 
 
 def add_integer(a, b=98):
-    """ 
+    """
     adding two integrs a and b
     """
     if not isinstance(a, (int, float)):
