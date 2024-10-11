@@ -1,32 +1,50 @@
 #!/usr/bin/python3
 """
-this module Prints a text with 2 new lines after each char
-"""
-def text_indentation(text):
-    """
-    Prints a text with 2 new lines after each of these characters: ., ?, and :
+    This module contains a function that prints portions of a text, and
+    delimits them with specified characters, separating the portions
+    with two lines.
+
     Args:
-        text (str): The text to be processed.
+        text: This argument can have leading and trailing white spaces
+            and even spaces in between. It must be a string instance.
     Raises:
-        TypeError: If the input is not a string.
-    """
-    if not isinstance(text, str):
+        TypeError: if `text` argument is not a string.
+
+    Example:
+        >>> text = "    Chemistry. An interesting study?  Ans:  Yes   "
+        >>> text_indentation(text)
+        Chemistry.
+        An interesting study?
+        Ans:
+        Yes>>>
+"""
+
+
+def text_indentation(text):
+    """Prints portions of text with delimiters separated by two lines"""
+
+    chars = ['.', '?', ':']
+    sep = ["\t", " ", "\r", "\n", "\r"]
+    new = ""
+
+    if (not isinstance(text, str)):
         raise TypeError("text must be a string")
 
-    # Traverse each character in the string
-    result = ""
-    i = 0
-    while i < len(text):
-        result += text[i]
-        # Check if the character is one of the specified punctuation marks
-        if text[i] in ".?:":
-            result += "\n\n"
-            # Skip any spaces after the punctuation
-            i += 1
-            while i < len(text) and text[i] == " ":
-                i += 1
-            continue
-        i += 1
+    # Remove leading and trailing whitespaces
+    _text = text.strip()
 
-    # Print the result without extra spaces at the beginning or end
-    print(result.strip(), end="")
+    # Remove whitespaces in between texts after specified separators
+    for idx, char in enumerate(_text):
+        if _text[idx] in sep and _text[idx - 1] in chars:
+            continue
+        elif _text[idx] in sep and _text[idx + 1] in sep:
+            continue
+        elif _text[idx] in sep and _text[idx - 1] in sep:
+            continue
+        new += _text[idx]
+
+    for char in new:
+        if char in chars:
+            print("{}\n".format(char))
+            continue
+        print(char, end='')
