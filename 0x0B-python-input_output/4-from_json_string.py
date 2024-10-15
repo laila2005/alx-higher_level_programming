@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import json
 """
 This module provides a function
 that returns a Python object
