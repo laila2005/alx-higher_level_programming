@@ -8,6 +8,7 @@ class Rectangle:
     """
     Class that defines a rectangle with width and height.
     """
+    
     def __init__(self, width=0, height=0):
         """
         Initializes the rectangle with optional width and height.
@@ -71,4 +72,4 @@ class Rectangle:
         """
         if self.__width == 0 or self.__height == 0:
             return ""
-        return "\n".join(["#" * self.__width for _ in range(self.__height)]
+        return "\n".join(["#" * self.__width for _ in range(self.__height)])
