@@ -1,16 +1,16 @@
 #!/usr/bin/python3
 """
-this module defines a rectangle class.
+This module defines a Rectangle class.
 """
 
 
 class Rectangle:
     """
-    class that defines a rectangle h and w.
+    Class that defines a rectangle with width and height.
     """
     def __init__(self, width=0, height=0):
         """
-        initializes a rectangle with h and w
+        Initializes a rectangle with width and height.
         """
         self.width = width
         self.height = height
@@ -18,14 +18,14 @@ class Rectangle:
     @property
     def width(self):
         """
-        getter method for the w arttibutes
+        Getter method for the width attribute.
         """
-        return self.width
+        return self.__width
 
     @width.setter
     def width(self, value):
         """
-        setter method for the width attribute.
+        Setter method for the width attribute.
         Ensures the width is an integer and >= 0.
         """
         if not isinstance(value, int):
