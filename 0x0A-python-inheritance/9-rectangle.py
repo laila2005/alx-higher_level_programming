@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-this module represent a class 
+this module represent a class
 that inherits from BaseGeometry
 """
 
