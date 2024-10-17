@@ -1,14 +1,20 @@
+#!/usr/bin/python3
+"""
+Module that defines a Rectangle class.
+"""
+
+
 class Rectangle:
     """Class defining a rectangle by width and height."""
 
-    number_of_instances = 0  # Counts instances
-    print_symbol = "#"        # Symbol for string representation
+    number_of_instances = 0
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         """Initializes rectangle with width and height."""
         self.width = width
         self.height = height
-        Rectangle.number_of_instances += 1  # Increment instance count
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
