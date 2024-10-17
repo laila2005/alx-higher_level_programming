@@ -1,28 +1,82 @@
 >>> MyList = __import__('1-my_list').MyList
->>> my_list = MyList([3, 1, 4, 2])
+>>> my_list = MyList()
+>>> my_list.append(10)
+>>> my_list.append(4)
+>>> my_list.append(2)
+>>> my_list.append(1)
+>>> print(my_list)
+[10, 4, 2, 1]
+>>> my_list.print_sorted()
+[1, 2, 4, 10]
+
+# Test case: class creation, regular print, and sorted print
+>>> my_list = MyList([1, 4, 3, 2])
+>>> print(my_list)
+[1, 4, 3, 2]
 >>> my_list.print_sorted()
 [1, 2, 3, 4]
 
+# Test case: class creation, multiple appends (including negative numbers), regular print, and sorted print
+>>> my_list = MyList()
+>>> my_list.append(-10)
+>>> my_list.append(5)
+>>> my_list.append(0)
+>>> print(my_list)
+[-10, 5, 0]
+>>> my_list.print_sorted()
+[-10, 0, 5]
+
+# Test case: check instantiation
+>>> my_list = MyList()
+>>> isinstance(my_list, MyList)
+True
+
+# Test case: check inherits from list
+>>> isinstance(my_list, list)
+True
+
+# Test case: check __str__ method
+>>> my_list = MyList([3, 1, 4, 2])
+>>> str(my_list)
+'[3, 1, 4, 2]'
+>>> my_list = MyList([])
+>>> str(my_list)
+'[]'
+
+# Test case: check append method
+>>> my_list = MyList()
+>>> my_list.append(5)
+>>> str(my_list)
+'[5]'
+>>> my_list.append(2)
+>>> my_list.append(9)
+>>> str(my_list)
+'[5, 2, 9]'
+
+# Test case: check print_sorted() with sorted append
 >>> my_list = MyList([1, 2, 3, 4])
 >>> my_list.print_sorted()
 [1, 2, 3, 4]
 
->>> my_list = MyList([-1, -3, 2, 0])
+# Test case: check print_sorted() with unsorted append
+>>> my_list = MyList([4, 1, 3, 2])
 >>> my_list.print_sorted()
-[-3, -1, 0, 2]
+[1, 2, 3, 4]
 
->>> my_list = MyList([5, 3, 3, 1, 2])
+# Test case: check print_sorted() with unsorted append and negative number
+>>> my_list = MyList([5, -1, 3, 2])
 >>> my_list.print_sorted()
-[1, 2, 3, 3, 5]
+[-1, 2, 3, 5]
 
->>> my_list = MyList([])
+# Test case: check print_sorted() with empty list
+>>> my_list = MyList()
 >>> my_list.print_sorted()
 []
 
->>> my_list = MyList([10])
->>> my_list.print_sorted()
-[10]
-
->>> my_list = MyList([1000, 500, 10000, 1])
->>> my_list.print_sorted()
-[1, 500, 1000, 10000]
+# Test case: check print_sorted() returns a new list
+>>> my_list = MyList([3, 1, 2])
+>>> sorted_list = sorted(my_list)
+>>> print(sorted_list)
+[1, 2, 3]
+>>> print(my_list)
+[3, 1, 2]
