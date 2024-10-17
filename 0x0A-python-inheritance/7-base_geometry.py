@@ -2,6 +2,8 @@
 """
 this module represent a class
 """
+
+
 class BaseGeometry:
     """
     A class that serves as a base for geometrical shapes.
@@ -15,9 +17,9 @@ class BaseGeometry:
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
-        """
-        Validates that value is an integer greater than 0.
-        """
+        """Validates the value."""
+        if value is None:
+            raise TypeError(f"{name} must be an integer")
         if not isinstance(value, int):
             raise TypeError(f"{name} must be an integer")
         if value <= 0:
