@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-this module includes a function that 
+this module includes a function that
 its a Public instance method
 """
 
