@@ -60,5 +60,7 @@ if __name__ == "__main__":
     if N < 4:
         print_error_and_exit("N must be at least 4")
     solutions = solve_n_queens(N)
+    print("OK")
+    print(len(solutions))
     for solution in solutions:
         print(solution)
