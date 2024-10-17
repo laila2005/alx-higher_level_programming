@@ -61,12 +61,7 @@ class Rectangle:
         return self.__width * self.__height
 
     def perimeter(self):
-        """Calculate the perimeter of the rectangle.
-
-        Returns:
-            int: The perimeter of the rectangle, or 0 if width or height 
-            is 0.
-        """
+        """Calculate the perimeter of the rectangle"""
         if self.__width == 0 or self.__height == 0:
             return 0
         return 2 * (self.__width + self.__height)
@@ -98,19 +93,7 @@ class Rectangle:
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
-        """Return the rectangle with the bigger area.
-
-        Args:
-            rect_1 (Rectangle): The first rectangle.
-            rect_2 (Rectangle): The second rectangle.
-
-        Raises:
-            TypeError: If either rect_1 or rect_2 is not a Rectangle instance.
-
-        Returns:
-            Rectangle: The rectangle with the bigger area, or rect_1 
-            if both areas are equal.
-        """
+        """Return the rectangle with the bigger area."""
         if not isinstance(rect_1, Rectangle):
             raise TypeError("rect_1 must be an instance of Rectangle")
         if not isinstance(rect_2, Rectangle):
