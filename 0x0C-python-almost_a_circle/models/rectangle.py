@@ -4,7 +4,9 @@ Module models.rectangle
 This module contains a class Rectangle that inherits from Base
 """
 
+
 from models.base import Base
+
 
 class Rectangle(Base):
     """
@@ -12,11 +14,12 @@ class Rectangle(Base):
     Handles width, height, x, and y attributes with validation.
     """
     def __init__(self, width, height, x=0, y=0, id=None):
+        """Initializes a Rectangle instance."""
         super().__init__(id)
-        self.width = width
-        self.height = height
-        self.x = x
-        self.y = y
+        self.__width = width
+        self.__height = height
+        self.__x = x
+        self.__y = y
 
     @property
     def width(self):
@@ -24,11 +27,11 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
-        if type(value) is not int:
+        if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value <= 0:
             raise ValueError("width must be > 0")
-        self.__x = value
+        self.__width = value
 
     @property
     def height(self):
@@ -36,11 +39,11 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, value):
-        if type(value) is not int:
+        if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value <= 0:
-            raise ValueError("height must be >= 0")
-        self.__y = value
+            raise ValueError("height must be > 0")
+        self.__height = value
 
     @property
     def x(self):
@@ -65,3 +68,7 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
+
+    def area(self):
+        """calculate area of rectangle"""
+        return self.width * self.height

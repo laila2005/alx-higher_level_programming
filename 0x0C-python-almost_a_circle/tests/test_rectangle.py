@@ -1,51 +1,84 @@
 #!/usr/bin/python3
 """
-Unit tests for Base class.
+Unit tests for the Rectangle class
 """
 
 import unittest
-from models.base import Base
+from models.rectangle import Rectangle
 
-class TestBase(unittest.TestCase):
-    """
-    Test cases for the Base class.
-    """
 
-    def setUp(self):
-        """
-        Method called to prepare the test fixture.
-        Resets __nb_objects to 0 before each test.
-        """
-        Base._Base__nb_objects = 0
+class TestRectangle(unittest.TestCase):
+    """Test cases for the Rectangle class"""
 
-    def test_id_provided(self):
-        """
-        Test that the id provided by the user is correctly assigned.
-        """
-        b1 = Base(100)
-        self.assertEqual(b1.id, 100)
+    def test_initialization(self):
+        """Test Rectangle initialization and attributes"""
+        r1 = Rectangle(3, 6)
+        self.assertEqual(r1.width, 3)
+        self.assertEqual(r1.height, 6)
+        self.assertEqual(r1.x, 0)
+        self.assertEqual(r1.y, 0)
+        self.assertEqual(r1.id, 1)
 
-    def test_id_not_provided(self):
-        """
-        Test that when no id is provided, the id is auto-generated.
-        """
-        b1 = Base()
-        self.assertEqual(b1.id, 1)
-        b2 = Base()
-        self.assertEqual(b2.id, 2)
+        r2 = Rectangle(4, 8, 2, 3)
+        self.assertEqual(r2.width, 4)
+        self.assertEqual(r2.height, 8)
+        self.assertEqual(r2.x, 2)
+        self.assertEqual(r2.y, 3)
+        self.assertEqual(r2.id, 2)
 
-    def test_mixed_ids(self):
-        """
-        Test that mixing provided and auto-generated ids works correctly.
-        """
-        b1 = Base(50)
-        self.assertEqual(b1.id, 50)
-        b2 = Base()
-        self.assertEqual(b2.id, 1)
-        b3 = Base()
-        self.assertEqual(b3.id, 2)
-        b4 = Base(10)
-        self.assertEqual(b4.id, 10)
+        r3 = Rectangle(5, 10, 1, 1, 99)
+        self.assertEqual(r3.width, 5)
+        self.assertEqual(r3.height, 10)
+        self.assertEqual(r3.x, 1)
+        self.assertEqual(r3.y, 1)
+        self.assertEqual(r3.id, 99)
 
-if __name__ == '__main__':
+    def test_invalid_width(self):
+        """Test invalid width values"""
+        with self.assertRaises(TypeError):
+            Rectangle("3", 6)
+
+        with self.assertRaises(ValueError):
+            Rectangle(-3, 6)
+
+        with self.assertRaises(ValueError):
+            Rectangle(0, 6)
+
+    def test_invalid_height(self):
+        """Test invalid height values"""
+        with self.assertRaises(TypeError):
+            Rectangle(3, "6")
+
+        with self.assertRaises(ValueError):
+            Rectangle(3, -6)
+
+        with self.assertRaises(ValueError):
+            Rectangle(3, 0)
+
+    def test_invalid_x(self):
+        """Test invalid x values"""
+        with self.assertRaises(TypeError):
+            Rectangle(3, 6, "2", 3)
+
+        with self.assertRaises(ValueError):
+            Rectangle(3, 6, -2, 3)
+
+    def test_invalid_y(self):
+        """Test invalid y values"""
+        with self.assertRaises(TypeError):
+            Rectangle(3, 6, 2, "3")
+
+        with self.assertRaises(ValueError):
+            Rectangle(3, 6, 2, -3)
+
+    def test_area(self):
+        """Test the area calculation method"""
+        r1 = Rectangle(3, 6)
+        self.assertEqual(r1.area(), 18)
+
+        r2 = Rectangle(4, 8)
+        self.assertEqual(r2.area(), 32)
+
+
+if __name__ == "__main__":
     unittest.main()
