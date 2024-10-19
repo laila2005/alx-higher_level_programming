@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
-Module models.base
 This module contains a class Base
 """
+
 
 class Base:
     """
