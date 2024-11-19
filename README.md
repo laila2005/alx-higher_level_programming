@@ -1,1 +1,1 @@
-python projects for ALX second sprint
+0x0D. SQL - Introduction
