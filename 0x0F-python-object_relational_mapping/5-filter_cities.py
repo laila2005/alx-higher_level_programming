@@ -1,16 +1,13 @@
 #!/usr/bin/python3
 """
-Script that lists all cities from the database hbtn_0e_4_usa
-where the state name matches the argument passed.
-Results are sorted by cities.id in asc order, and are
-displayed as a comma-separated list.
+Module that lists all cities from the database hbtn_0e_4_usa
+where the state name matches the argument.
 """
 import MySQLdb
 import sys
 
 if __name__ == "__main__":
-
-    # Connect to the MySQL server
+    # Connect to MySQL database
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
@@ -18,27 +15,31 @@ if __name__ == "__main__":
         passwd=sys.argv[2],
         db=sys.argv[3]
     )
-
+    
+    # Create cursor
     cur = db.cursor()
 
-    query = (
-        "SELECT cities.name "
-        "FROM cities "
-        "JOIN states ON cities.state_id = states.id "
-        "WHERE states.name = %s "
-        "ORDER BY cities.name ASC"
-    )
-
+    # Use parameterized query to avoid SQL injection
+    query = """
+    SELECT cities.name 
+    FROM cities
+    JOIN states ON cities.state_id = states.id
+    WHERE states.name = %s
+    ORDER BY cities.id ASC;
+    """
+    
+    # Execute query with the state name argument
     cur.execute(query, (sys.argv[4],))
 
-    # Fetch all results
+    # Fetch all rows
     rows = cur.fetchall()
+
+    # Print cities or a message if no cities are found
     if rows:
-        cities = ", ".join([row[0] for row in rows])
-        print(cities)
+        print(", ".join([row[0] for row in rows]))
     else:
         print(" ")
 
-    # Close the cursor and database connection
+    # Close the cursor and the database connection
     cur.close()
     db.close()
