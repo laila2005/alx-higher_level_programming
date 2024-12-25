@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """
-Script that takes in 4 arguments (MySQL username, password, database name, and state name)
-and displays all states from the 'states' table where the name matches the argument.
-Results are sorted by states.id in ascending order.
+Script that takes in 4 arguments
+and displays all states from the 'states'
+table where the name matches the argument.
+Results are sorted by states.id in asc order.
 """
 import MySQLdb
 import sys
