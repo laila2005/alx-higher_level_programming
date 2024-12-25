@@ -22,11 +22,11 @@ if __name__ == "__main__":
 
     query = (
         "SELECT id, name FROM states "
-        "WHERE name = BINARY '{0}' "
+        "WHERE name = BINARY %s "
         "ORDER BY id ASC"
-    ).format(sys.argv[4])
+    )
 
-    cur.execute(query)
+    cur.execute(query, (sys.argv[4],))
 
     rows = cur.fetchall()
     for row in rows:
